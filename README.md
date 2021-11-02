@@ -1,10 +1,12 @@
 # wlankiller
 
-usage: wk.sh INTERFACE APMAC CHANNEL B/W LISTFILE
+usage: wk.sh <INTERFACE> <APMAC> <CHANNEL> <b/w> [LISTFILE] [c]
 
 b/w specifies blacklist (targeted) or whitelist mode.
 
 LISTFILE should contain the MACs to avoid deauthing (whitelist) or to target (blacklist).
+
+the c (continuous) flag lets the script run continuously forever.
 
 the rest is self explanatory, requires the aircrack suite.
 
